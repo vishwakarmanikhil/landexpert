@@ -103,7 +103,7 @@
           <div class="col-sm-12 section-t2">
             <div class="row">
               <div class="col-md-7">
-                <form method="post" role="form" class="php-email-form">
+                <form method="post" role="form" name="contact_us_form" class="php-email-form">
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
@@ -336,6 +336,17 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwO7zVKeodTspm_9OtZFCq3VJe_eiPxuOhzTSGNQn9x68VV00p14EfMLabXRiS-AhYaRA/exec'
+    const form = document.forms['contact_us_form']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
 </body>
 
