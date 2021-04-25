@@ -103,7 +103,7 @@
           <div class="col-sm-12 section-t2">
             <div class="row">
               <div class="col-md-7">
-                <form method="post" role="form" name="contact_us_form" id="test-form" class="php-email-form">
+                <form method="post" name="contact_us_form" id="test-form" class="php-email-form">
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-group">
-                        <select class="form-control form-control-lg form-control-a" name="interested_type" required>
+                        <select class="form-control form-control-lg form-control-a" name="property_type" required>
                           <option value="" selected disabled>Select Interested In</option>
                           <option value="plot">Plot</option>
                           <option value="flat">Flat</option>
@@ -325,8 +325,6 @@
     </div>
   </footer><!-- End  Footer -->
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/js/jquery.min.js"></script>
@@ -334,24 +332,17 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
   <script>
-    var $form = $('form#test-form'),
-    url = 'https://script.google.com/macros/s/AKfycbwYeFWCz-dXZq2gpW-zOG2GMs_BPdGA-dvD6onv-WOR_-YhCxdmUtngzPo18pNtlsptdQ/exec'
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwF30mAZyagw_jgPedNTrAMIVx0pxCpaloFqycQxe-bzNQC98Hp2yBVuaV9vV_InLrqRQ/exec';
+  const form = document.forms['contact_us_form'];
 
-    $('#submit-form').on('click', function(e) {
-      e.preventDefault();
-      var jqxhr = $.ajax({
-        url: url,
-        method: "GET",
-        dataType: "json",
-        data: $form.serializeObject()
-      }).success(
-        alert("Form Data Submitted :)")
-      );
-    })
-  </script>
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert("Your Response Submitted Successfully. Our Support Team Will Contact you sortly."))
+      .catch(error => console.error('Error!', error.message))
+  });
+</script>
 </body>
 
 </html>
