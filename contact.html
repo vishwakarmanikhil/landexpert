@@ -140,7 +140,7 @@
                       </div>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button type="submit" class="btn btn-a" name="submit_contact_btn">Submit</button>
+                      <button type="submit" class="btn btn-a" id="btnFetch" name="submit_contact_btn">Submit</button>
                     </div>
                   </div>
                 </form>
@@ -332,17 +332,9 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwF30mAZyagw_jgPedNTrAMIVx0pxCpaloFqycQxe-bzNQC98Hp2yBVuaV9vV_InLrqRQ/exec';
-  const form = document.forms['contact_us_form'];
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact-form.js"></script>
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => alert("Your Response Submitted Successfully. Our Support Team Will Contact you sortly."))
-      .catch(error => console.error('Error!', error.message))
-  });
-</script>
 </body>
-
 </html>

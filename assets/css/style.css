@@ -2268,7 +2268,7 @@ footer .credits {
   background-color: #000;
 }
 .container-parallax section:nth-child(1) .image-parallax {
-  background-image: url(https://images.unsplash.com/photo-1504512485720-7d83a16ee930?iq=100&fm=jpg&w=1000);
+  background-image: url("../img/about-bg.jpg");
 }
 
 .container-parallax section .image-parallax {
